@@ -219,22 +219,23 @@
                     <property name="nativeDataType">12</property>
                 </structure>
             </list-property>
-            <xml-property name="queryText"><![CDATA[SELECT sci.city_short_code      as city_short_code,
-       sci.city_short_name      as city_short_name,
-       sci.cityname             as cityname,
-       sci.calling_code         as calling_code,
-       sci.website              as website,
-       sci.is_active            as is_active,
-       sc.countryname           as countryname,
-       ap.provience_short_code  as provience_short_code,
-       ap.PROVIENCE_NAME        as PROVIENCE_NAME
+            <xml-property name="queryText"><![CDATA[SELECT sci.city_short_code       "city_short_code",
+       sci.city_short_name       "city_short_name",
+       sci.cityname              "cityname",
+       sci.calling_code          "calling_code",
+       sci.website               "website",
+       sci.is_active             "is_active",
+       sc.countryname            "countryname",
+       ap.provience_short_code   "provience_short_code",
+       ap.PROVIENCE_NAME         "PROVIENCE_NAME"
        
 FROM sm_country sc,
      sm_city sci
      LEFT OUTER JOIN
      admin_provience ap
      ON sci.provience_sno = ap.PROVIENCE_SNO /*LEFT OUTER JOIN*/
-WHERE sc.countrycode = sci.countrycode     /*Equi Join*/]]></xml-property>
+WHERE sc.countrycode = sci.countrycode     /*Equi Join*/
+order by sci.cityname ]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
@@ -492,7 +493,7 @@ WHERE sc.countrycode = sci.countrycode     /*Equi Join*/]]></xml-property>
                                 <property name="marginRight">10pt</property>
                                 <property name="textAlign">center</property>
                                 <property name="contentType">html</property>
-                                <text-property name="content"><![CDATA[Created on: <value-of>new Date()</value-of>]]></text-property>
+                                <text-property name="content"><![CDATA[Printed On: <value-of>new Date()</value-of>]]></text-property>
                             </text>
                         </cell>
                         <cell id="539">
@@ -572,7 +573,7 @@ WHERE sc.countrycode = sci.countrycode     /*Equi Join*/]]></xml-property>
                         <property name="fontFamily">sans-serif</property>
                         <property name="fontSize">32pt</property>
                         <property name="fontWeight">bold</property>
-                        <property name="marginTop">25pt</property>
+                        <property name="marginTop">15pt</property>
                         <property name="paddingBottom">5pt</property>
                         <property name="textAlign">left</property>
                         <property name="contentType">auto</property>
@@ -583,12 +584,12 @@ WHERE sc.countrycode = sci.countrycode     /*Equi Join*/]]></xml-property>
             </row>
         </grid>
         <table id="630">
-            <property name="width">8.010416666666666in</property>
+            <property name="width">8.020833333333334in</property>
             <property name="dataSet">Data Set</property>
             <list-property name="boundDataColumns">
                 <structure>
                     <property name="name">city_short_code</property>
-                    <text-property name="displayName">code</text-property>
+                    <text-property name="displayName">cod</text-property>
                     <expression name="expression" type="javascript">dataSetRow["city_short_code"]</expression>
                     <property name="dataType">integer</property>
                     <property name="allowExport">true</property>
@@ -608,9 +609,10 @@ WHERE sc.countrycode = sci.countrycode     /*Equi Join*/]]></xml-property>
                 </structure>
                 <structure>
                     <property name="name">calling_code</property>
-                    <text-property name="displayName">calling_code</text-property>
+                    <text-property name="displayName">call_code</text-property>
                     <expression name="expression" type="javascript">dataSetRow["calling_code"]</expression>
                     <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
                 </structure>
                 <structure>
                     <property name="name">website</property>
@@ -620,7 +622,7 @@ WHERE sc.countrycode = sci.countrycode     /*Equi Join*/]]></xml-property>
                 </structure>
                 <structure>
                     <property name="name">is_active</property>
-                    <text-property name="displayName">active</text-property>
+                    <text-property name="displayName">acti</text-property>
                     <expression name="expression" type="javascript">dataSetRow["is_active"]</expression>
                     <property name="dataType">string</property>
                     <property name="allowExport">true</property>
@@ -633,9 +635,10 @@ WHERE sc.countrycode = sci.countrycode     /*Equi Join*/]]></xml-property>
                 </structure>
                 <structure>
                     <property name="name">provience_short_code</property>
-                    <text-property name="displayName">provience_short_code</text-property>
+                    <text-property name="displayName">ode</text-property>
                     <expression name="expression" type="javascript">dataSetRow["provience_short_code"]</expression>
                     <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
                 </structure>
                 <structure>
                     <property name="name">PROVIENCE_NAME</property>
@@ -649,20 +652,25 @@ WHERE sc.countrycode = sci.countrycode     /*Equi Join*/]]></xml-property>
                 <property name="width">0.4791666666666667in</property>
             </column>
             <column id="680">
-                <property name="width">1.0520833333333333in</property>
+                <property name="width">0.8645833333333334in</property>
             </column>
             <column id="681">
-                <property name="width">1.5520833333333333in</property>
+                <property name="width">1.2916666666666667in</property>
             </column>
-            <column id="682"/>
+            <column id="682">
+                <property name="width">0.71875in</property>
+            </column>
             <column id="683">
-                <property name="width">1.0520833333333333in</property>
+                <property name="width">1.09375in</property>
             </column>
             <column id="684">
-                <property name="width">1.15625in</property>
+                <property name="width">0.8125in</property>
             </column>
             <column id="685">
-                <property name="width">1.2708333333333333in</property>
+                <property name="width">1in</property>
+            </column>
+            <column id="690">
+                <property name="width">1.2083333333333333in</property>
             </column>
             <column id="687">
                 <property name="width">0.5520833333333334in</property>
@@ -696,7 +704,7 @@ WHERE sc.countrycode = sci.countrycode     /*Equi Join*/]]></xml-property>
                             <property name="paddingTop">3pt</property>
                             <property name="paddingBottom">3pt</property>
                             <property name="textAlign">center</property>
-                            <text-property name="text">City S Name</text-property>
+                            <text-property name="text">Short Name</text-property>
                         </label>
                     </cell>
                     <cell id="636">
@@ -709,7 +717,7 @@ WHERE sc.countrycode = sci.countrycode     /*Equi Join*/]]></xml-property>
                             <property name="paddingTop">3pt</property>
                             <property name="paddingBottom">3pt</property>
                             <property name="textAlign">center</property>
-                            <text-property name="text">City Name</text-property>
+                            <text-property name="text">Name</text-property>
                         </label>
                     </cell>
                     <cell id="638">
@@ -722,23 +730,10 @@ WHERE sc.countrycode = sci.countrycode     /*Equi Join*/]]></xml-property>
                             <property name="paddingTop">3pt</property>
                             <property name="paddingBottom">3pt</property>
                             <property name="textAlign">center</property>
-                            <text-property name="text">Call Code</text-property>
+                            <text-property name="text">Dial Code</text-property>
                         </label>
                     </cell>
                     <cell id="640">
-                        <property name="borderRightColor">#000000</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <label id="641">
-                            <property name="fontSize">11pt</property>
-                            <property name="fontWeight">bold</property>
-                            <property name="paddingTop">3pt</property>
-                            <property name="paddingBottom">3pt</property>
-                            <property name="textAlign">center</property>
-                            <text-property name="text">Website</text-property>
-                        </label>
-                    </cell>
-                    <cell id="642">
                         <property name="borderRightColor">#000000</property>
                         <property name="borderRightStyle">solid</property>
                         <property name="borderRightWidth">thin</property>
@@ -751,6 +746,19 @@ WHERE sc.countrycode = sci.countrycode     /*Equi Join*/]]></xml-property>
                             <text-property name="text">Country Name</text-property>
                         </label>
                     </cell>
+                    <cell id="642">
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <label id="691">
+                            <property name="fontSize">11pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="paddingTop">3pt</property>
+                            <property name="paddingBottom">3pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Prov Code</text-property>
+                        </label>
+                    </cell>
                     <cell id="644">
                         <property name="borderRightColor">#000000</property>
                         <property name="borderRightStyle">solid</property>
@@ -761,7 +769,20 @@ WHERE sc.countrycode = sci.countrycode     /*Equi Join*/]]></xml-property>
                             <property name="paddingTop">3pt</property>
                             <property name="paddingBottom">3pt</property>
                             <property name="textAlign">center</property>
-                            <text-property name="text">Provience Name</text-property>
+                            <text-property name="text">Prov Name</text-property>
+                        </label>
+                    </cell>
+                    <cell id="688">
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <label id="641">
+                            <property name="fontSize">11pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="paddingTop">3pt</property>
+                            <property name="paddingBottom">3pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Website</text-property>
                         </label>
                     </cell>
                     <cell id="648">
@@ -833,24 +854,24 @@ WHERE sc.countrycode = sci.countrycode     /*Equi Join*/]]></xml-property>
                         <property name="borderRightColor">#000000</property>
                         <property name="borderRightStyle">solid</property>
                         <property name="borderRightWidth">thin</property>
-                        <data id="660">
-                            <property name="marginTop">1pt</property>
-                            <property name="paddingTop">2pt</property>
-                            <property name="paddingBottom">2pt</property>
-                            <property name="textAlign">center</property>
-                            <property name="resultSetColumn">website</property>
-                        </data>
-                    </cell>
-                    <cell id="661">
-                        <property name="borderRightColor">#000000</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
                         <data id="664">
                             <property name="marginTop">1pt</property>
                             <property name="paddingTop">2pt</property>
                             <property name="paddingBottom">2pt</property>
                             <property name="textAlign">center</property>
                             <property name="resultSetColumn">countryname</property>
+                        </data>
+                    </cell>
+                    <cell id="661">
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <data id="708">
+                            <property name="marginTop">1pt</property>
+                            <property name="paddingTop">2pt</property>
+                            <property name="paddingBottom">2pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">provience_short_code</property>
                         </data>
                     </cell>
                     <cell id="663">
@@ -863,6 +884,18 @@ WHERE sc.countrycode = sci.countrycode     /*Equi Join*/]]></xml-property>
                             <property name="paddingBottom">2pt</property>
                             <property name="textAlign">center</property>
                             <property name="resultSetColumn">PROVIENCE_NAME</property>
+                        </data>
+                    </cell>
+                    <cell id="689">
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <data id="660">
+                            <property name="marginTop">1pt</property>
+                            <property name="paddingTop">2pt</property>
+                            <property name="paddingBottom">2pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">website</property>
                         </data>
                     </cell>
                     <cell id="667">

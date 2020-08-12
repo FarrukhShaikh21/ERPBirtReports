@@ -7,7 +7,7 @@
     <property name="bidiLayoutOrientation">ltr</property>
     <property name="imageDPI">96</property>
     <parameters>
-        <scalar-parameter name="P_city_short_code" id="906">
+        <scalar-parameter name="P_city_short_code" id="910">
             <property name="valueType">static</property>
             <property name="isRequired">true</property>
             <property name="dataType">string</property>
@@ -230,15 +230,15 @@
                     <property name="nativeDataType">12</property>
                 </structure>
             </list-property>
-            <xml-property name="queryText"><![CDATA[SELECT sci.city_short_code      as city_short_code,
-       sci.city_short_name      as city_short_name,
-       sci.cityname             as cityname,
-       sci.calling_code         as calling_code,
-       sci.website              as website,
-       sci.is_active            as is_active,
-       sc.countryname           as countryname,
-       ap.provience_short_code  as provience_short_code,
-       ap.PROVIENCE_NAME        as PROVIENCE_NAME
+            <xml-property name="queryText"><![CDATA[SELECT sci.city_short_code       "city_short_code",
+       sci.city_short_name       "city_short_name",
+       sci.cityname              "cityname",
+       sci.calling_code          "calling_code",
+       sci.website               "website",
+       sci.is_active             "is_active",
+       sc.countryname            "countryname",
+       ap.provience_short_code   "provience_short_code",
+       ap.PROVIENCE_NAME         "PROVIENCE_NAME"
        
 FROM sm_country sc,
      sm_city sci
@@ -246,28 +246,10 @@ FROM sm_country sc,
      admin_provience ap
      ON sci.provience_sno = ap.PROVIENCE_SNO /*LEFT OUTER JOIN*/
 WHERE sc.countrycode = sci.countrycode     /*Equi Join*/
-AND sci.city_short_code = ?
-     ]]></xml-property>
+AND sci.city_short_code  = ?]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
-  <DataSetParameters>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>1</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-  </DataSetParameters>
   <design:ResultSets derivedMetaData="true">
     <design:resultSetDefinitions>
       <design:resultSetColumns>
@@ -498,7 +480,7 @@ AND sci.city_short_code = ?
                                 <property name="marginRight">10pt</property>
                                 <property name="textAlign">center</property>
                                 <property name="contentType">html</property>
-                                <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                                <text-property name="content"><![CDATA[Printed On : <value-of>new Date()</value-of>]]></text-property>
                             </text>
                         </cell>
                         <cell id="783">
@@ -579,7 +561,7 @@ AND sci.city_short_code = ?
                         <property name="fontSize">32px</property>
                         <property name="fontWeight">bold</property>
                         <property name="color">#000000</property>
-                        <property name="marginTop">25pt</property>
+                        <property name="marginTop">20pt</property>
                         <property name="paddingBottom">5pt</property>
                         <property name="textAlign">center</property>
                         <property name="contentType">auto</property>
@@ -596,10 +578,10 @@ AND sci.city_short_code = ?
         <grid id="797">
             <property name="width">8in</property>
             <column id="798">
-                <property name="width">3.3020833333333335in</property>
+                <property name="width">3.2291666666666665in</property>
             </column>
             <column id="799">
-                <property name="width">4.697916666666667in</property>
+                <property name="width">4.770833333333333in</property>
             </column>
             <row id="800">
                 <property name="borderBottomColor">#000000</property>
@@ -611,12 +593,12 @@ AND sci.city_short_code = ?
                         <property name="fontSize">11pt</property>
                         <property name="fontWeight">bold</property>
                         <property name="marginTop">5pt</property>
-                        <property name="marginLeft">15pt</property>
+                        <property name="marginLeft">45pt</property>
                         <property name="paddingTop">5pt</property>
                         <property name="paddingLeft">37pt</property>
                         <property name="paddingBottom">5pt</property>
                         <property name="textAlign">center</property>
-                        <text-property name="text">City Short Code :</text-property>
+                        <text-property name="text">City Code          :</text-property>
                     </label>
                 </cell>
                 <cell id="802">
@@ -647,11 +629,11 @@ AND sci.city_short_code = ?
                         <property name="fontSize">11pt</property>
                         <property name="fontWeight">bold</property>
                         <property name="marginTop">5pt</property>
-                        <property name="marginLeft">75pt</property>
+                        <property name="marginLeft">80pt</property>
                         <property name="paddingTop">5pt</property>
                         <property name="paddingBottom">5pt</property>
                         <property name="textAlign">center</property>
-                        <text-property name="text">City Name :</text-property>
+                        <text-property name="text">City Name          :</text-property>
                     </label>
                 </cell>
                 <cell id="805">
@@ -682,12 +664,12 @@ AND sci.city_short_code = ?
                         <property name="fontSize">11pt</property>
                         <property name="fontWeight">bold</property>
                         <property name="marginTop">5pt</property>
-                        <property name="marginLeft">45pt</property>
+                        <property name="marginLeft">70pt</property>
                         <property name="paddingTop">5pt</property>
                         <property name="paddingLeft">5pt</property>
                         <property name="paddingBottom">5pt</property>
                         <property name="textAlign">center</property>
-                        <text-property name="text">City Short Name :</text-property>
+                        <text-property name="text">Short Name          :</text-property>
                     </label>
                 </cell>
                 <cell id="808">
@@ -724,7 +706,7 @@ AND sci.city_short_code = ?
                         <property name="paddingLeft">35pt</property>
                         <property name="paddingBottom">5pt</property>
                         <property name="textAlign">center</property>
-                        <text-property name="text">Dialing Code :</text-property>
+                        <text-property name="text">Dialing Code          :</text-property>
                     </label>
                 </cell>
                 <cell id="811">
@@ -760,7 +742,7 @@ AND sci.city_short_code = ?
                         <property name="paddingLeft">1pt</property>
                         <property name="paddingBottom">5pt</property>
                         <property name="textAlign">center</property>
-                        <text-property name="text">Country Name :</text-property>
+                        <text-property name="text">Country Name          :</text-property>
                     </label>
                 </cell>
                 <cell id="814">
@@ -796,7 +778,7 @@ AND sci.city_short_code = ?
                         <property name="paddingLeft">47pt</property>
                         <property name="paddingBottom">5pt</property>
                         <property name="textAlign">center</property>
-                        <text-property name="text">Provience Name :</text-property>
+                        <text-property name="text">Provience Name          :</text-property>
                     </label>
                 </cell>
                 <cell id="861">
@@ -832,7 +814,7 @@ AND sci.city_short_code = ?
                         <property name="paddingLeft">28pt</property>
                         <property name="paddingBottom">5pt</property>
                         <property name="textAlign">center</property>
-                        <text-property name="text">Provience Code :</text-property>
+                        <text-property name="text">Provience Code          :</text-property>
                     </label>
                 </cell>
                 <cell id="864">
@@ -863,12 +845,12 @@ AND sci.city_short_code = ?
                         <property name="fontSize">11pt</property>
                         <property name="fontWeight">bold</property>
                         <property name="marginTop">5pt</property>
-                        <property name="marginLeft">65pt</property>
+                        <property name="marginLeft">70pt</property>
                         <property name="paddingTop">5pt</property>
                         <property name="paddingLeft">28pt</property>
                         <property name="paddingBottom">5pt</property>
                         <property name="textAlign">center</property>
-                        <text-property name="text">Website :</text-property>
+                        <text-property name="text">Website         :</text-property>
                     </label>
                 </cell>
                 <cell id="890">
@@ -899,12 +881,12 @@ AND sci.city_short_code = ?
                         <property name="fontSize">11pt</property>
                         <property name="fontWeight">bold</property>
                         <property name="marginTop">5pt</property>
-                        <property name="marginLeft">70pt</property>
+                        <property name="marginLeft">77pt</property>
                         <property name="paddingTop">5pt</property>
                         <property name="paddingLeft">28pt</property>
                         <property name="paddingBottom">5pt</property>
                         <property name="textAlign">center</property>
-                        <text-property name="text">Active :</text-property>
+                        <text-property name="text">Active         :</text-property>
                     </label>
                 </cell>
                 <cell id="893">
