@@ -255,9 +255,11 @@ FROM SM_COUNTRY CO
      LEFT OUTER JOIN
      SET_LANGUAGE LA
      ON  CO.NATIONAL_LANGUAGE_SNO = LA.LANGUAGE_SNO
+     
      LEFT OUTER JOIN
      SM_CITY SC
-     ON CO.COUNTRYCODE = SC.citycode
+     ON CO.CAPITAL_CITY_SNO = SC.citycode
+     
       LEFT OUTER JOIN
      admin_continent AC
      ON CO.CONTINENT_SNO = AC.CONTINENT_SNO
@@ -677,6 +679,13 @@ ORDER BY CO.COUNTRYCODE ]]></xml-property>
                     <property name="dataType">string</property>
                     <property name="allowExport">true</property>
                 </structure>
+                <structure>
+                    <property name="name">sub_continent_name</property>
+                    <text-property name="displayName">sub_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["sub_continent_name"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
             </list-property>
             <column id="679">
                 <property name="width">0.4791666666666667in</property>
@@ -936,17 +945,16 @@ ORDER BY CO.COUNTRYCODE ]]></xml-property>
                         <property name="borderRightColor">#000000</property>
                         <property name="borderRightStyle">solid</property>
                         <property name="borderRightWidth">thin</property>
+                        <data id="705">
+                            <property name="resultSetColumn">continent_name</property>
+                        </data>
                     </cell>
                     <cell id="689">
                         <property name="borderRightColor">#000000</property>
                         <property name="borderRightStyle">solid</property>
                         <property name="borderRightWidth">thin</property>
-                        <data id="700">
-                            <property name="marginTop">1pt</property>
-                            <property name="paddingTop">2pt</property>
-                            <property name="paddingBottom">2pt</property>
-                            <property name="textAlign">center</property>
-                            <property name="resultSetColumn">continent_name</property>
+                        <data id="706">
+                            <property name="resultSetColumn">sub_continent_name</property>
                         </data>
                     </cell>
                     <cell id="667">
