@@ -779,7 +779,7 @@ GROUP BY user_code,
                         <property name="paddingBottom">5pt</property>
                         <property name="textAlign">center</property>
                         <property name="contentType">auto</property>
-                        <text-property name="content"><![CDATA[Group Form Report]]></text-property>
+                        <text-property name="content"><![CDATA[User Form Report]]></text-property>
                     </text>
                 </cell>
                 <cell id="498">
