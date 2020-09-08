@@ -822,20 +822,8 @@ left outer join
                             <property name="width">0.5520833333333334in</property>
                         </column>
                         <row id="1451">
-                            <cell id="1452">
-                                <label id="1462">
-                                    <property name="fontWeight">bold</property>
-                                    <property name="textAlign">center</property>
-                                    <text-property name="text">Colum Name</text-property>
-                                </label>
-                            </cell>
-                            <cell id="1453">
-                                <label id="1463">
-                                    <property name="fontWeight">bold</property>
-                                    <property name="textAlign">center</property>
-                                    <text-property name="text">Colum Detail</text-property>
-                                </label>
-                            </cell>
+                            <cell id="1452"/>
+                            <cell id="1453"/>
                             <cell id="1454">
                                 <label id="1072">
                                     <property name="fontWeight">bold</property>
