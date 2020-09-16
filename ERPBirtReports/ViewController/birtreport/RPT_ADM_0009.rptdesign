@@ -279,8 +279,16 @@ FROM sys_action_group_header sagh
      left outer join 
      sys_action_group_company sagc
      on sagh.group_header_sno = sagc.group_header_sno /* left Join */
-     where sagh.is_active = 'Y'
-GROUP BY group_header_sno ]]></xml-property>
+
+GROUP BY sagh.group_header_sno,
+sagh.group_header_code,
+       sagh.group_header_sno,
+       sagh.action_group_name,
+       sagh.document_date,
+       sagh.start_date,
+       sagh.end_date,
+       sagh.is_active,
+       suat.access_type_name]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
