@@ -39,10 +39,10 @@
                     <name>disabledContentBidiFormatStr</name>
                 </ex-property>
             </list-property>
-            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
-            <property name="odaURL">jdbc:mysql://localhost/erporacle</property>
-            <property name="odaUser">root</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">bXlzcWw3ODY=</encrypted-property>
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.168.1.246:1521:ORCL</property>
+            <property name="odaUser">ORAERP</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">T1JBRVJQ</encrypted-property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -132,12 +132,12 @@
                     <structure>
                         <property name="position">1</property>
                         <property name="name">group_header_code</property>
-                        <property name="dataType">integer</property>
+                        <property name="dataType">decimal</property>
                     </structure>
                     <structure>
                         <property name="position">2</property>
                         <property name="name">group_header_sno</property>
-                        <property name="dataType">integer</property>
+                        <property name="dataType">decimal</property>
                     </structure>
                     <structure>
                         <property name="position">3</property>
@@ -147,17 +147,17 @@
                     <structure>
                         <property name="position">4</property>
                         <property name="name">document_date</property>
-                        <property name="dataType">date</property>
+                        <property name="dataType">date-time</property>
                     </structure>
                     <structure>
                         <property name="position">5</property>
                         <property name="name">start_date</property>
-                        <property name="dataType">date</property>
+                        <property name="dataType">date-time</property>
                     </structure>
                     <structure>
                         <property name="position">6</property>
                         <property name="name">end_date</property>
-                        <property name="dataType">date</property>
+                        <property name="dataType">date-time</property>
                     </structure>
                     <structure>
                         <property name="position">7</property>
@@ -192,15 +192,15 @@
                     <property name="position">1</property>
                     <property name="name">group_header_code</property>
                     <property name="nativeName">group_header_code</property>
-                    <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
                     <property name="name">group_header_sno</property>
                     <property name="nativeName">group_header_sno</property>
-                    <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
@@ -213,22 +213,22 @@
                     <property name="position">4</property>
                     <property name="name">document_date</property>
                     <property name="nativeName">document_date</property>
-                    <property name="dataType">date</property>
-                    <property name="nativeDataType">91</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">5</property>
                     <property name="name">start_date</property>
                     <property name="nativeName">start_date</property>
-                    <property name="dataType">date</property>
-                    <property name="nativeDataType">91</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">6</property>
                     <property name="name">end_date</property>
                     <property name="nativeName">end_date</property>
-                    <property name="dataType">date</property>
-                    <property name="nativeDataType">91</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">7</property>
@@ -249,21 +249,21 @@
                     <property name="name">Total Row in Lines</property>
                     <property name="nativeName">Total Row in Lines</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
+                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">10</property>
                     <property name="name">Total Active User</property>
                     <property name="nativeName">Total Active User</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
+                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">11</property>
                     <property name="name">Total Active Location</property>
                     <property name="nativeName">Total Active Location</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
+                    <property name="nativeDataType">2</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT sagh.group_header_code         "group_header_code",
@@ -274,13 +274,13 @@
        sagh.end_date                  "end_date",
        sagh.is_active                 "is_active",
        suat.access_type_name          "access_type_name",
-       count(sagh.group_header_sno)   "Total Row in Lines",
+       count(sagl.group_header_sno)   "Total Row in Lines",
        count(sagu.group_header_sno)   "Total Active User",
        count(sagc.group_header_sno)   "Total Active Location"
 FROM sys_action_group_header sagh
      join
      sys_user_access_type suat
-     on sagh.group_header_sno = suat.user_access_type_sno  /* Equi Join */
+     on sagh.Access_Type = suat.access_type AND suat.access_level='G'  /* Equi Join */
      left outer join 
      sys_action_group_lines sagl
      on sagh.group_header_sno = sagl.group_header_sno /* left Join */
@@ -292,16 +292,14 @@ FROM sys_action_group_header sagh
      on sagh.group_header_sno = sagc.group_header_sno /* left Join */
      where sagh.group_header_code = ?
 GROUP BY sagh.group_header_sno,
-sagh.group_header_code,
+       sagh.group_header_code,
        sagh.group_header_sno,
        sagh.action_group_name,
        sagh.document_date,
        sagh.start_date,
        sagh.end_date,
        sagh.is_active,
-       suat.access_type_name    
-
-]]></xml-property>
+       suat.access_type_name]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
