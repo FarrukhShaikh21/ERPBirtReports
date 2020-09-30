@@ -1049,17 +1049,8 @@ left outer join
                                 <property name="dataType">string</property>
                             </structure>
                         </list-property>
-                        <column id="966">
-                            <property name="width">0.34375in</property>
-                        </column>
-                        <column id="1494">
-                            <property name="width">0.7916666666666666in</property>
-                        </column>
-                        <column id="1496">
-                            <property name="width">0.7604166666666666in</property>
-                        </column>
                         <column id="789">
-                            <property name="width">0.4166666666666667in</property>
+                            <property name="width">2.3541666666666665in</property>
                         </column>
                         <column id="790">
                             <property name="width">8.177083333333334in</property>
@@ -1073,47 +1064,68 @@ left outer join
                             <property name="hideDetail">false</property>
                             <header>
                                 <row id="851">
-                                    <property name="borderBottomColor">#000000</property>
-                                    <property name="borderBottomStyle">solid</property>
-                                    <property name="borderBottomWidth">thin</property>
-                                    <cell id="958">
-                                        <data id="858">
-                                            <property name="fontSize">9pt</property>
-                                            <property name="marginTop">1pt</property>
-                                            <property name="marginLeft">0pt</property>
-                                            <property name="textAlign">center</property>
-                                            <property name="resultSetColumn">country_short_code</property>
-                                        </data>
-                                    </cell>
-                                    <cell id="1493">
-                                        <data id="859">
-                                            <property name="fontSize">9pt</property>
-                                            <property name="marginTop">1pt</property>
-                                            <property name="marginLeft">2pt</property>
-                                            <property name="textAlign">center</property>
-                                            <property name="resultSetColumn">country_short_name</property>
-                                        </data>
-                                    </cell>
-                                    <cell id="1495">
-                                        <data id="891">
-                                            <property name="fontSize">9pt</property>
-                                            <property name="marginTop">1pt</property>
-                                            <property name="marginLeft">2pt</property>
-                                            <property name="textAlign">center</property>
-                                            <property name="resultSetColumn">countryname</property>
-                                        </data>
-                                    </cell>
                                     <cell id="852">
                                         <property name="borderRightColor">#000000</property>
                                         <property name="borderRightStyle">solid</property>
                                         <property name="borderRightWidth">thin</property>
-                                        <data id="900">
-                                            <property name="fontSize">9pt</property>
-                                            <property name="marginTop">1pt</property>
-                                            <property name="marginLeft">2pt</property>
-                                            <property name="textAlign">center</property>
-                                            <property name="resultSetColumn">Country_active</property>
-                                        </data>
+                                        <table id="1535">
+                                            <property name="width">2.28125in</property>
+                                            <column id="1551">
+                                                <property name="width">0.34375in</property>
+                                            </column>
+                                            <column id="1552">
+                                                <property name="width">0.78125in</property>
+                                            </column>
+                                            <column id="1553">
+                                                <property name="width">0.7291666666666666in</property>
+                                            </column>
+                                            <column id="1554">
+                                                <property name="width">0.4270833333333333in</property>
+                                            </column>
+                                            <header>
+                                                <row id="1536">
+                                                    <property name="borderBottomColor">#000000</property>
+                                                    <property name="borderBottomStyle">solid</property>
+                                                    <property name="borderBottomWidth">thin</property>
+                                                    <cell id="1537">
+                                                        <data id="858">
+                                                            <property name="fontSize">9pt</property>
+                                                            <property name="marginTop">0pt</property>
+                                                            <property name="marginLeft">0pt</property>
+                                                            <property name="textAlign">center</property>
+                                                            <property name="resultSetColumn">country_short_code</property>
+                                                        </data>
+                                                    </cell>
+                                                    <cell id="1538">
+                                                        <data id="859">
+                                                            <property name="fontSize">9pt</property>
+                                                            <property name="marginTop">0pt</property>
+                                                            <property name="marginLeft">0pt</property>
+                                                            <property name="textAlign">center</property>
+                                                            <property name="resultSetColumn">country_short_name</property>
+                                                        </data>
+                                                    </cell>
+                                                    <cell id="1539">
+                                                        <data id="891">
+                                                            <property name="fontSize">9pt</property>
+                                                            <property name="marginTop">0pt</property>
+                                                            <property name="marginLeft">0pt</property>
+                                                            <property name="textAlign">center</property>
+                                                            <property name="resultSetColumn">countryname</property>
+                                                        </data>
+                                                    </cell>
+                                                    <cell id="1540">
+                                                        <data id="900">
+                                                            <property name="fontSize">9pt</property>
+                                                            <property name="marginTop">0pt</property>
+                                                            <property name="marginLeft">0pt</property>
+                                                            <property name="textAlign">center</property>
+                                                            <property name="resultSetColumn">Country_active</property>
+                                                        </data>
+                                                    </cell>
+                                                </row>
+                                            </header>
+                                        </table>
                                     </cell>
                                     <cell id="853">
                                         <property name="borderLeftStyle">solid</property>
@@ -1151,6 +1163,8 @@ left outer join
                                             </column>
                                             <detail>
                                                 <row id="1375">
+                                                    <property name="borderBottomStyle">solid</property>
+                                                    <property name="borderBottomWidth">thin</property>
                                                     <property name="textAlign">center</property>
                                                     <cell id="1376">
                                                         <data id="1266">
