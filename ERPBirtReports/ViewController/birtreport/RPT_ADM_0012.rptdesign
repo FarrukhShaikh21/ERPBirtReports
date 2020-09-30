@@ -39,10 +39,10 @@
                     <name>disabledContentBidiFormatStr</name>
                 </ex-property>
             </list-property>
-            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
-            <property name="odaURL">jdbc:mysql://localhost/erporacle</property>
-            <property name="odaUser">root</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">bXlzcWw3ODY=</encrypted-property>
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.168.1.246:1521:ORCL</property>
+            <property name="odaUser">ORAERP</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">T1JBRVJQ</encrypted-property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -184,7 +184,7 @@
                     <structure>
                         <property name="position">3</property>
                         <property name="name">dob</property>
-                        <property name="dataType">date</property>
+                        <property name="dataType">date-time</property>
                     </structure>
                     <structure>
                         <property name="position">4</property>
@@ -209,7 +209,7 @@
                     <structure>
                         <property name="position">8</property>
                         <property name="name">expiry_date</property>
-                        <property name="dataType">date</property>
+                        <property name="dataType">date-time</property>
                     </structure>
                     <structure>
                         <property name="position">9</property>
@@ -219,7 +219,7 @@
                     <structure>
                         <property name="position">10</property>
                         <property name="name">lock_date</property>
-                        <property name="dataType">date</property>
+                        <property name="dataType">date-time</property>
                     </structure>
                     <structure>
                         <property name="position">11</property>
@@ -283,8 +283,8 @@
                     <property name="position">3</property>
                     <property name="name">dob</property>
                     <property name="nativeName">dob</property>
-                    <property name="dataType">date</property>
-                    <property name="nativeDataType">91</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">4</property>
@@ -318,8 +318,8 @@
                     <property name="position">8</property>
                     <property name="name">expiry_date</property>
                     <property name="nativeName">expiry_date</property>
-                    <property name="dataType">date</property>
-                    <property name="nativeDataType">91</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">9</property>
@@ -332,13 +332,13 @@
                     <property name="position">10</property>
                     <property name="name">lock_date</property>
                     <property name="nativeName">lock_date</property>
-                    <property name="dataType">date</property>
-                    <property name="nativeDataType">91</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">11</property>
                     <property name="name">gender_description</property>
-                    <property name="nativeName">GENDER_DESCRIPTION</property>
+                    <property name="nativeName">gender_description</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
@@ -375,21 +375,21 @@
                     <property name="name">Total_Group_Assigned</property>
                     <property name="nativeName">Total_Group_Assigned</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
+                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">17</property>
                     <property name="name">Total_Activities_Assigned</property>
                     <property name="nativeName">Total_Activities_Assigned</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
+                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">18</property>
                     <property name="name">Total_Locations_Assigned</property>
                     <property name="nativeName">Total_Locations_Assigned</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
+                    <property name="nativeDataType">2</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT su.user_code              "user_code",
@@ -423,6 +423,7 @@ FROM sys_users su
      join
      sys_user_access_type suat
      on su.access_type = suat.access_type     /* Equi Join */
+     and suat.access_level='U'
      
 	 left outer join 
      sm_country sco
@@ -432,20 +433,19 @@ FROM sys_users su
      sm_city sc
      on su.city_sno = sc.citycode            /* left Join */
 
-	 join
+	 left outer join
      sys_action_group_user sagu
      on su.user_id = sagu.user_id    /* Equi Join */
      
-     join
+     left outer join
      sys_users_module sum
      on su.user_id = sum.user_id    /* Equi Join */
 
-     join
+     left outer join
      sys_user_company suc
      on su.user_id = suc.user_id    /* Equi Join */     
      
-where su.is_lock = 'Y'
-and su.user_code = ?
+where su.user_id = ?
 GROUP BY user_code,
          user_name,
          dob,
