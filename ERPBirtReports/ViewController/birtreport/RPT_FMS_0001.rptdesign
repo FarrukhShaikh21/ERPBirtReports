@@ -553,7 +553,7 @@ FROM gl_chart_of_accounts gcoa
             </row>
         </grid>
         <table id="630">
-            <property name="width">8.020833333333334in</property>
+            <property name="width">8.03125in</property>
             <property name="dataSet">Data Set</property>
             <list-property name="boundDataColumns">
                 <structure>
@@ -604,25 +604,25 @@ FROM gl_chart_of_accounts gcoa
                 </structure>
             </list-property>
             <column id="679">
-                <property name="width">1.4166666666666667in</property>
+                <property name="width">1.604in</property>
             </column>
             <column id="680">
-                <property name="width">1.396in</property>
+                <property name="width">1.3541666666666667in</property>
             </column>
             <column id="681">
-                <property name="width">1.0729166666666667in</property>
+                <property name="width">1.0104166666666667in</property>
             </column>
             <column id="682">
-                <property name="width">1.4375in</property>
+                <property name="width">1.65625in</property>
             </column>
             <column id="683">
-                <property name="width">1.396in</property>
+                <property name="width">1.3229166666666667in</property>
             </column>
             <column id="684">
                 <property name="width">0.5in</property>
             </column>
             <column id="685">
-                <property name="width">0.5520833333333334in</property>
+                <property name="width">0.59375in</property>
             </column>
             <header>
                 <row id="631">
@@ -717,7 +717,7 @@ FROM gl_chart_of_accounts gcoa
                             <property name="fontWeight">bold</property>
                             <property name="paddingTop">3pt</property>
                             <property name="paddingBottom">3pt</property>
-                            <property name="textAlign">center</property>
+                            <property name="textAlign">left</property>
                             <text-property name="text">Active</text-property>
                         </label>
                     </cell>
@@ -733,7 +733,7 @@ FROM gl_chart_of_accounts gcoa
                         <property name="borderRightStyle">solid</property>
                         <property name="borderRightWidth">thin</property>
                         <data id="692">
-                            <property name="fontSize">8pt</property>
+                            <property name="fontSize">7pt</property>
                             <property name="textAlign">center</property>
                             <property name="resultSetColumn">chart_of_account_code</property>
                         </data>
@@ -743,7 +743,7 @@ FROM gl_chart_of_accounts gcoa
                         <property name="borderRightStyle">solid</property>
                         <property name="borderRightWidth">thin</property>
                         <data id="693">
-                            <property name="fontSize">8pt</property>
+                            <property name="fontSize">7pt</property>
                             <property name="textAlign">center</property>
                             <property name="resultSetColumn">description</property>
                         </data>
@@ -753,7 +753,7 @@ FROM gl_chart_of_accounts gcoa
                         <property name="borderRightStyle">solid</property>
                         <property name="borderRightWidth">thin</property>
                         <data id="694">
-                            <property name="fontSize">8pt</property>
+                            <property name="fontSize">7pt</property>
                             <property name="textAlign">center</property>
                             <property name="resultSetColumn">coa_type_name</property>
                         </data>
@@ -763,7 +763,7 @@ FROM gl_chart_of_accounts gcoa
                         <property name="borderRightStyle">solid</property>
                         <property name="borderRightWidth">thin</property>
                         <data id="695">
-                            <property name="fontSize">8pt</property>
+                            <property name="fontSize">7pt</property>
                             <property name="textAlign">center</property>
                             <property name="resultSetColumn">Parent_chart_of_account_code</property>
                         </data>
@@ -773,7 +773,7 @@ FROM gl_chart_of_accounts gcoa
                         <property name="borderRightStyle">solid</property>
                         <property name="borderRightWidth">thin</property>
                         <data id="696">
-                            <property name="fontSize">8pt</property>
+                            <property name="fontSize">7pt</property>
                             <property name="textAlign">center</property>
                             <property name="resultSetColumn">Parent_chart_of_account_name</property>
                         </data>
@@ -783,7 +783,7 @@ FROM gl_chart_of_accounts gcoa
                         <property name="borderRightStyle">solid</property>
                         <property name="borderRightWidth">thin</property>
                         <data id="697">
-                            <property name="fontSize">8pt</property>
+                            <property name="fontSize">7pt</property>
                             <property name="textAlign">center</property>
                             <property name="resultSetColumn">level_no</property>
                         </data>
@@ -793,7 +793,7 @@ FROM gl_chart_of_accounts gcoa
                         <property name="borderRightStyle">solid</property>
                         <property name="borderRightWidth">thin</property>
                         <data id="698">
-                            <property name="fontSize">8pt</property>
+                            <property name="fontSize">7pt</property>
                             <property name="textAlign">center</property>
                             <property name="resultSetColumn">is_active</property>
                         </data>
