@@ -38,10 +38,10 @@
                     <name>disabledContentBidiFormatStr</name>
                 </ex-property>
             </list-property>
-            <property name="odaDriverClass">com.mysql.cj.jdbc.Driver</property>
-            <property name="odaURL">jdbc:mysql://localhost/erporacle</property>
-            <property name="odaUser">root</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">bXlzcWw3ODY=</encrypted-property>
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.168.1.246:1521:ORCL</property>
+            <property name="odaUser">ORAERP</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">T1JBRVJQ</encrypted-property>
         </oda-data-source>
     </data-sources>
     <data-sets>
